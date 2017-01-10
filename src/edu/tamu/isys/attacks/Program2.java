@@ -9,18 +9,18 @@ import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 
-public class Program1 {
-
+public class Program2 {
+		
 	public static void main(String[] args) throws Exception{
 	
 		Configuration conf = new Configuration();
-		Job job = Job.getInstance(conf, "arp spoof");
-		job.setJarByClass(Program1.class);
+		Job job = Job.getInstance(conf, "DDoS");
+		job.setJarByClass(Program2.class);
 		
-		job.setMapperClass(ARPMapper.class);
-		job.setReducerClass(ARPReducer.class);
+		job.setMapperClass(DDOSMapper.class);
+		job.setReducerClass(DDOSReducer.class);
 		
-		job.setOutputKeyClass(Text.class);
+		job.setOutputKeyClass(Text.class); 
 		job.setOutputValueClass(Text.class);
 		
 		job.setInputFormatClass(TextInputFormat.class);
@@ -29,8 +29,7 @@ public class Program1 {
 		FileInputFormat.addInputPath(job, new Path(args[0]));
 		FileOutputFormat.setOutputPath(job, new Path(args[1]));
 
-		job.waitForCompletion(true);
+		System.exit(job.waitForCompletion(true)?0:1);
 
 	}
-
 }

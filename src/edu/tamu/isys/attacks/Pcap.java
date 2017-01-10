@@ -1,8 +1,7 @@
 package edu.tamu.isys.attacks;
 
-import java.io.FileReader;
+//import java.io.FileReader;
 import java.io.StringReader;
-
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
@@ -74,7 +73,7 @@ public class Pcap {
     }
     
    public int writeFromCSV(String s)
-   {		System.out.println("Pcap Parser Value: "+s);
+   {		//System.out.println("Pcap Parser Value: "+s);
    			String header = "\"No.\",\"Time\",\"Source\",\"Destination\",\"Protocol\",\"Length\",\"Info\"\n";
 			CSVFormat format = CSVFormat.EXCEL.withHeader();
 			try
@@ -91,7 +90,7 @@ public class Pcap {
 			   	this.setInfo(record.get("Info"));
 			   }
 			   parser.close();
-			   System.out.println("Value is: "+No+" "+ Time+" "+Source+" "+Destination+" "+Protocol+" "+Length+ " "+Info);
+			   //System.out.println("Value is: "+No+" "+ Time+" "+Source+" "+Destination+" "+Protocol+" "+Length+ " "+Info);
 			   if (this.Time != -1)
 			   {return 1;}
 			   else
